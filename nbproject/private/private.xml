@@ -11,28 +11,17 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCOnPoints.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCardActivate.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCardPrint.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCRedemption.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCOffPoints.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCardSuspend.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCUpdate.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCardSpareparts.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCardIssue.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCard.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCardEncode.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCApplication.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGPetronIssuance.java</file>
-            <file>file:/D:/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCRedemptionPromo.java</file>
-        </group>
         <group name="Java New"/>
         <group name="gocas"/>
         <group name="POS">
             <file>file:/D:/Guanzon/GMC%20SEG%20Folder%20-%20Java%20new/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCOnPoints.java</file>
         </group>
         <group name="GCard"/>
+        <group name="guanzon"/>
+        <group name="From Laptop">
+            <file>file:/D:/GuanzonL/GMC%20SEG%20Folder%20-%20Java/gcard-trans-agentFX/src/org/rmj/gcard/trans/agentFX/XMGCOffPoints.java</file>
+        </group>
+        <group/>
         <group name="GCARD"/>
     </open-files>
 </project-private>
