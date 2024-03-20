@@ -127,9 +127,6 @@ public class XMGCOnPoints {
         }
 
         poData = (UnitGCardDetail) poCtrl.newTransaction();
-        
-        //mac 2019.07.29
-        //  imposible pang mag-iba to
         poData.setTransactDate(poGRider.getServerDate());
 
         if(poData == null){
@@ -172,11 +169,9 @@ public class XMGCOnPoints {
     public boolean saveUpdate() {
         if(poCtrl == null){
             return false;
-        }//end: if(poCtrl == null)
-        else if(pnEditMode == EditMode.UNKNOWN){
+        } else if(pnEditMode == EditMode.UNKNOWN){
             return false;
-        }//end: if(poCtrl == null) - else if(pnEditMode == EditMode.UNKNOWN)
-        else{
+        } else{
             //Only regular GCard and/or Member card earn points...
             if(((String)this.getGCard().getMaster("cMainGrpx")).contentEquals("1")){
                 setMessage("Mother GCard cannot earn points!");
@@ -218,8 +213,6 @@ public class XMGCOnPoints {
                 return false;
             }
 
-            //mac 2020-07-25
-            //  employee G-Card must not earn points
             if (isEmployee()){
                 setMessage("Employees are not ALLOWED to earn POINTS.");
                 return false;
@@ -232,15 +225,10 @@ public class XMGCOnPoints {
                     poData.setOTPassword(String.format("%06d", MiscUtil.getRandom(999999)));
                     break;
                 case NONE:
-                    //mac 2020-06-18
-                    //check if server is active
                     if (!CommonUtils.isURLOnline(CommonUtils.getConfiguration(poGRider, "WebSvr"))){
                         setMessage("Main office server cannot be reached and device use is a NON-CHIP CARD. Please encode this entry as OFFLINE POINTS ENTRY.");
                         return false;
                     }
-                    
-                    //mac 2020-06-09
-                    //  added no chip card for otp generation.
                     poData.setOTPassword(String.format("%06d", MiscUtil.getRandom(999999)));
                     break;
                 default:
@@ -310,30 +298,33 @@ public class XMGCOnPoints {
 
                if (!pbWithParnt) poGRider.commitTrans();
  
-               //kalyptus - 2019.10.22 10:23am
-               //send the points update to the main server here...
-                JSONObject response = 
-                        GCRestAPI.UpdatePoint(poGRider, 
-                        (String) poGCDevice.getCardInfo("sCardNmbr"),
-                        "ONLINE",
-                        poData.getTransNo(),
-                        poData.getPoints());
-                String result = (String) response.get("result");
-                if(result.equalsIgnoreCase("success")){
-                    String sql = "UPDATE " + loResult.getTable() + 
-                                " SET cPointSnt = '1'" + 
-                                " WHERE sTransNox = " + SQLUtil.toSQL(poData.getTransNo());
-                    poGRider.executeQuery(sql, loResult.getTable(), "", "");
-                    
-                    //mac 2019.07.18
-                    //  update the last line value of gcard master based on the last point sent...
-                    sql = "UPDATE G_Card_Master" + 
-                            " SET sLastLine = " + SQLUtil.toSQL(loResult.getTransNo()) + 
-                                ", sModified = " + SQLUtil.toSQL(poGRider.getUserID()) + 
-                                ", dModified = " + SQLUtil.toSQL(poGRider.getServerDate()) + 
-                            " WHERE sGCardNox = " + SQLUtil.toSQL((String)poGCDevice.getCardInfo("sGCardNox"));
-                    poGRider.executeQuery(sql, "G_Card_Master", "", "");
-                }
+//mac 2024.02.26
+//  comment out this block of code for implementation of TDS
+//  uploading of TDS will be on GCOnPoints.saveUpdate()
+//               //kalyptus - 2019.10.22 10:23am
+//               //send the points update to the main server here...
+//                JSONObject response = 
+//                        GCRestAPI.UpdatePoint(poGRider, 
+//                        (String) poGCDevice.getCardInfo("sCardNmbr"),
+//                        "ONLINE",
+//                        poData.getTransNo(),
+//                        poData.getPoints());
+//                String result = (String) response.get("result");
+//                if(result.equalsIgnoreCase("success")){
+//                    String sql = "UPDATE " + loResult.getTable() + 
+//                                " SET cPointSnt = '1'" + 
+//                                " WHERE sTransNox = " + SQLUtil.toSQL(poData.getTransNo());
+//                    poGRider.executeQuery(sql, loResult.getTable(), "", "");
+//                    
+//                    //mac 2019.07.18
+//                    //  update the last line value of gcard master based on the last point sent...
+//                    sql = "UPDATE G_Card_Master" + 
+//                            " SET sLastLine = " + SQLUtil.toSQL(loResult.getTransNo()) + 
+//                                ", sModified = " + SQLUtil.toSQL(poGRider.getUserID()) + 
+//                                ", dModified = " + SQLUtil.toSQL(poGRider.getServerDate()) + 
+//                            " WHERE sGCardNox = " + SQLUtil.toSQL((String)poGCDevice.getCardInfo("sGCardNox"));
+//                    poGRider.executeQuery(sql, "G_Card_Master", "", "");
+//                }
                 
                 setMessage("Transaction saved successfully...");
                 return true;
