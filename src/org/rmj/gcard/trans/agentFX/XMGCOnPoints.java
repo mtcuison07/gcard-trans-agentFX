@@ -296,39 +296,8 @@ public class XMGCOnPoints {
                 pnEditMode = EditMode.READY;
                 poData = loResult;
 
-               if (!pbWithParnt) poGRider.commitTrans();
- 
-//mac 2024.02.26
-//  comment out this block of code for implementation of TDS
-//  uploading of TDS will be on GCOnPoints.saveUpdate()
-//               //kalyptus - 2019.10.22 10:23am
-//               //send the points update to the main server here...
-//                JSONObject response = 
-//                        GCRestAPI.UpdatePoint(poGRider, 
-//                        (String) poGCDevice.getCardInfo("sCardNmbr"),
-//                        "ONLINE",
-//                        poData.getTransNo(),
-//                        poData.getPoints());
-//                String result = (String) response.get("result");
-//                if(result.equalsIgnoreCase("success")){
-//                    String sql = "UPDATE " + loResult.getTable() + 
-//                                " SET cPointSnt = '1'" + 
-//                                " WHERE sTransNox = " + SQLUtil.toSQL(poData.getTransNo());
-//                    poGRider.executeQuery(sql, loResult.getTable(), "", "");
-//                    
-//                    //mac 2019.07.18
-//                    //  update the last line value of gcard master based on the last point sent...
-//                    sql = "UPDATE G_Card_Master" + 
-//                            " SET sLastLine = " + SQLUtil.toSQL(loResult.getTransNo()) + 
-//                                ", sModified = " + SQLUtil.toSQL(poGRider.getUserID()) + 
-//                                ", dModified = " + SQLUtil.toSQL(poGRider.getServerDate()) + 
-//                            " WHERE sGCardNox = " + SQLUtil.toSQL((String)poGCDevice.getCardInfo("sGCardNox"));
-//                    poGRider.executeQuery(sql, "G_Card_Master", "", "");
-//                }
-                
                 setMessage("Transaction saved successfully...");
                 return true;
-
             }//end: if(loResult == null) - else
         }//end: if(poCtrl == null) - else
     }
