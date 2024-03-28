@@ -198,7 +198,7 @@ public class XMGCApplication{
             String lsCardNmbr = (String) loResult.get("sCardNmbr");
             lsCardNmbr = "APPLICATION»»»»" + lsCardNmbr + "»»»»»»";
             
-            Webcam.showQR(lsCardNmbr, "new");
+            Webcam.showQR("New G-Card", lsCardNmbr, "new");
             
             lsCardNmbr = "UPDATE G_Card_Application" +
                             " SET cTranStat = '1'" +
