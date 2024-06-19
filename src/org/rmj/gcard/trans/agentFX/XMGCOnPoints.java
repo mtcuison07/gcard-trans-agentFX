@@ -55,13 +55,13 @@ public class XMGCOnPoints {
     public void setMaster(int fnCol, Object foData) {
         if(pnEditMode != EditMode.UNKNOWN && poCtrl != null){
             // Don't allow update for sGCardNox, cCardStat, sModified, and dModified
-            if(!(fnCol == poData.getColumn("sTransNox") ||
-                fnCol == poData.getColumn("dTransact") ||    
+            if(!(fnCol == poData.getColumn("sTransNox") ||  
                 fnCol == poData.getColumn("nPointsxx") ||
                 fnCol == poData.getColumn("cTranStat") ||
                 fnCol == poData.getColumn("sModified") ||
                 fnCol == poData.getColumn("dModified"))){
-
+                //removed: fnCol == poData.getColumn("dTransact")
+                
                 if(fnCol == poData.getColumn("dTransact")){
                     //mac 2019.07.29
                     //  this will be useless since we are catching it above
@@ -88,12 +88,6 @@ public class XMGCOnPoints {
                     setPoints(code, amt, pbHasBonus);
 
                 }//end: if(!(fnCol == poData.getColumn("sTransNox") - else if(fnCol == poData.getColumn("sSourceCD"))
-                /*else if(fnCol == poData.getColumn("sSourceNo")){
-                    Double amt = (Double) poData.getValue("nTranAmtx");
-                    String code = (String) poData.getValue("sSourceCd");
-
-                    setPoints(code, amt, pbHasBonus);
-                }*/
                 else if(fnCol == poData.getColumn("sSourceNo")){
                     Double amt = (Double) poData.getValue("nTranAmtx");
                     String code = (String) poData.getValue("sSourceCd");
@@ -206,7 +200,7 @@ public class XMGCOnPoints {
             else if(isInGCOffline()){
                 point = 0;
             }         
-
+            System.out.println(poData.getPoints());
             if((double)point != poData.getPoints()){
                 setMessage("Points validation failed...\n" +
                             "Verification of transaction failed!");               
